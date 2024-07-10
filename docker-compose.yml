@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  db-project-03:
+    image: postgres:alpine
+    ports:
+      - 2828:5432
+    container_name: "project-03-db"
+    restart: always
+    environment:
+      - POSTGRES_USER=project-03-user
+      - POSTGRES_PASSWORD=project-03-password
+      - POSTGRES_DB=mydb
+    volumes:
+      - database-project-01:/var/lib/postgresql/data
+
+volumes:
+  database-project-01:
+
+  # Preencher os campos
+  # Verificar se a porta ja esta sendo utilizada e modificar para outra  ex: 5433:5432
+  # docker-compose up -d
